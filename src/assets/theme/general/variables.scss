@@ -1,0 +1,28 @@
+// Colors
+$eastern-blue: #0c8397;
+$sun: #ee7033;
+$mountain-meadow: #12a580;
+$fire-brick: #c12020;
+
+$coral: #ff8343;
+$ruby: #d51271;
+$buddha-gold: #c89616;
+$dark-tangerine: #fbbb1b;
+$cinnabar: #e25a2c;
+$denim: #1180aa;
+
+$theme-colors: (
+  primary: $eastern-blue,
+  warning: $sun,
+  success: $mountain-meadow,
+  danger: $fire-brick
+);
+
+// Spacing
+$pixel-spacer: 5px !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+@for $i from 1 through 100 {
+  $spacers: map-merge($spacers, (
+    $i * 5: ($i * $pixel-spacer)
+  ));
+}
