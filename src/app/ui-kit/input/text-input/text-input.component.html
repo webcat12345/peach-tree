@@ -1,6 +1,15 @@
 <div class="form-group">
-  <label class="w-100">
+  <label class="w-100 position-relative">
     {{ label }}
-    <input class="form-control" [min]="min" [maxLength]="maxLength" [type]="type" [placeholder]="placeholder" [(ngModel)]="value" (ngModelChange)="change($event)" [readonly]="readonly">
+    <span *ngIf="prefix" class="prefix">{{ prefix }}</span>
+    <input class="form-control"
+           [style.padding-left.px]="prefix ? prefix.length * 10 : 0"
+           [type]="type"
+           [min]="min"
+           [maxLength]="maxLength"
+           [placeholder]="placeholder"
+           [(ngModel)]="value"
+           (ngModelChange)="change($event)"
+           [readonly]="readonly">
   </label>
 </div>

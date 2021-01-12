@@ -22,6 +22,7 @@ export class TextInputComponent implements ControlValueAccessor {
   @Input() min;
   @Input() maxLength = 50;
   @Input() readonly;
+  @Input() prefix;
 
   onChange;
 
