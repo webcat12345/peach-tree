@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { InputModule } from '../ui-kit/input/input.module';
+import { FilterModule } from '../ui-kit/filter/filter.module';
 
 import { TransferFormComponent } from './transfer-form/transfer-form.component';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
@@ -18,7 +19,8 @@ import { TransactionTableComponent } from './transaction-table/transaction-table
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    InputModule
+    InputModule,
+    FilterModule
   ],
   exports: [
     TransferFormComponent,

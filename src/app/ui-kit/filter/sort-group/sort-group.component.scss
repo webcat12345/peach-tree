@@ -1,0 +1,15 @@
+@import "../../../../assets/theme";
+
+.btn-group {
+  border: 1px solid $timber-wolf;
+  button.btn {
+    border-radius: 0;
+    span {
+      position: absolute;
+      right: 8px;
+    }
+  }
+  button.btn:not(:last-child) {
+    border-right: 1px solid $timber-wolf;
+  }
+}

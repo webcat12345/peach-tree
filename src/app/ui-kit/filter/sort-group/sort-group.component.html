@@ -1,0 +1,9 @@
+<div class="btn-group">
+  <button class="btn text-uppercase px-15 px-sm-20 px-md-25" *ngFor="let item of options" (click)="selectOption(item.value)">
+    {{ item.label }}
+    <span *ngIf="item.value === filter.by">
+      <ng-container *ngIf="filter.order === Order.Ascending">&darr;</ng-container>
+      <ng-container *ngIf="filter.order === Order.Descending">&uarr;</ng-container>
+    </span>
+  </button>
+</div>
