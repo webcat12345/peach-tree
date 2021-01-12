@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { LayoutModule } from './layout/layout.module';
 import { TransactionManagerModule } from './transaction-manager/transaction-manager.module';
@@ -13,6 +14,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     LayoutModule,
     TransactionManagerModule

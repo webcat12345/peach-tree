@@ -1,1 +1,18 @@
-<p>transaction-table works!</p>
+<div class="transaction-table">
+  <div class="d-flex table-row position-relative" *ngFor="let item of transactions">
+    <div class="category" [style.background-color]="item.categoryCode"></div>
+    <div>
+      <span class="font-15">{{ item.transactionDate | date : 'MMM d' }}</span>
+    </div>
+    <div class="avatar">
+      <img [src]="item.merchantLogo" [alt]="item.merchant">
+    </div>
+    <div class="d-flex flex-column">
+      <span class="font-weight-medium">{{ item.merchant }}</span>
+      <span class="font-14">{{ item.transactionType }}</span>
+    </div>
+    <div>
+      <span class="font-weight-bold">- {{ item.amount | currency }}</span>
+    </div>
+  </div>
+</div>
