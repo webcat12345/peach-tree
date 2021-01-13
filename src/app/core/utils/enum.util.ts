@@ -19,3 +19,9 @@ export function enumToOptions<T>(source: any, labels?: any): Option<T>[] {
     return { label: enumToLabel(source[key], labels), value: source[key] };
   });
 }
+
+export function randomFromEnum<T>(source: any): T {
+  const keys = Object.keys(source);
+  const rand = Math.floor(Math.random() * Math.floor(keys.length - 1));
+  return source[keys[rand]];
+}

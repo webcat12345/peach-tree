@@ -1,0 +1,11 @@
+::ng-deep {
+  .dropdown-menu {
+    padding: 4px 0;
+    .dropdown-item {
+      font-size: 14px;
+      &.active {
+        background-color: #343a40;
+      }
+    }
+  }
+}
