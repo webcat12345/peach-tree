@@ -1,4 +1,10 @@
+@import "../assets/theme";
+
 section {
   background: url("/assets/images/background.jpg") no-repeat center;
   background-size: cover;
+
+  @include media-breakpoint-up(lg) {
+    height: 100vh;
+  }
 }
