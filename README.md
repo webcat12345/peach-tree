@@ -1,27 +1,47 @@
-# PeachTree
+# Peach Tree Bank (POC)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+This project is test task for Backbase Front End Technical Assignment.
 
-## Development server
+## Documentations
+* Requirement - [REQUIREMENTS.md](REQUIREMENTS.md)
+* Project Consultation - [CONSULTATION](CONSULTATION.md)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Technical guideline
 
-## Code scaffolding
+### Hosted domains
+This project is deployed to Github Page, and you can review the URL - [https://webcat12345.github.io/peach-tree/](https://webcat12345.github.io/peach-tree/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Culture & Development process
+* For the Git guideline, I followed [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/)
+* There is a CI/CD integration with [Github Actions](https://github.com/features/actions)
+* Pushing to Git branch `dev` will do proper testing for the codebase
+* Pushing to Git branch `gh-page` will deploy project to the server
 
-## Build
+### Framework & Libraries
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* [Angular v11](https://angular.io)
+* [Bootstrap 4](https://getbootstrap.com/)
+* [NG Bootstrap](https://ng-bootstrap.github.io/#/home)
 
-## Running unit tests
+### Outline of code
+* _Core_ - main features and functional things such as services, models etc.
+* _Layout_ - main layout features, only navbar for this project
+* _UI-Kit_ - reusable components we are going to use on this application
+* _Transaction Manager_ -  all main features for the transaction manager functionality including components and pipes
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Development
+```bash
+$ npm install
 
-## Running end-to-end tests
+# run development server, will be run on http://localhost:4200 as default
+$ npm run start
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# do lint testing
+$ npm run lint
 
-## Further help
+# unit test
+$ npm run test
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# e2e test
+$ npm run e2e
+```
