@@ -1,9 +1,0 @@
-@import "../../../assets/theme";
-
-.content-scrollable {
-  max-height: calc(100vh - 300px);
-  overflow: auto;
-  border: 1px solid $timber-wolf;
-  border-left: none;
-  @include pretty-scroll();
-}
