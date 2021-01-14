@@ -1,7 +1,7 @@
 <div class="widget shadow">
   <div class="header bg-primary d-flex align-items-center justify-content-center py-10">
     <div class="header-icon"><img src="assets/images/icons/briefcase.png" alt="Transactions"></div>
-    <span class="text-white font-18">Recent Transactions</span>
+    <span class="text-white font-18" i18n>Recent Transactions</span>
   </div>
   <div class="content bg-white p-20">
     <div class="content-header">
@@ -10,7 +10,7 @@
           <peach-tree-search-input (keywordChange)="keyword = $event"></peach-tree-search-input>
         </div>
         <div class="d-flex align-items-center justify-content-between justify-content-md-start my-20 mt-md-0">
-          <span class="d-none d-md-block font-14 font-weight-medium mr-15 text-center">Sort by</span>
+          <span class="d-none d-md-block font-14 font-weight-medium mr-15 text-center" i18n>Sort by</span>
           <peach-tree-sort-group [options]="sortOptions" (sortChange)="sortChange($event)"></peach-tree-sort-group>
         </div>
       </div>

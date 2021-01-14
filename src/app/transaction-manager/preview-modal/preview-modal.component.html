@@ -5,12 +5,12 @@
   </button>
 </div>
 <div class="modal-body text-center">
-  <p class="text-dark mb-5">
+  <p class="text-dark mb-5" i18n>
     You are going to send <span class="font-weight-medium">{{ transaction.amount | currency }}</span> to <span class="font-weight-medium">{{ transaction.merchant }}</span>
     and your balance will be <span class="font-weight-medium">{{ ((balance$ | async) - transaction.amount) | currency }}</span> after the transaction.
   </p>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-danger" (click)="activeModal.dismiss(false)">CANCEL</button>
-  <button type="button" class="btn btn-warning" (click)="transfer()">TRANSFER</button>
+  <button type="button" class="btn btn-danger" (click)="activeModal.dismiss(false)" i18n>CANCEL</button>
+  <button type="button" class="btn btn-warning" (click)="transfer()" i18n>TRANSFER</button>
 </div>
