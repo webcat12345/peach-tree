@@ -37,7 +37,7 @@ export class TransferFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async submit() {
+  async submit(): Promise<any> {
     try {
       const value = this.form.value;
       if (!this.transactionService.validateAmount(value.amount)) { // overdraft is limited to -500 USD

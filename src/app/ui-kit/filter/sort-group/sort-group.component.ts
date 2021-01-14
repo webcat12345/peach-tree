@@ -22,7 +22,7 @@ export class SortGroupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectOption(option) {
+  selectOption(option): void {
     // Requirement: The Sorting order (ascending/descending) should be persistent across all sorting options;
     // i.e. If you are sorting by beneficiary ASC and switch the sorting option to Amount, the sorting order should stay ASC
     if (this.filter.by === option) {

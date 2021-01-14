@@ -10,10 +10,11 @@ export class SortPipe implements PipeTransform {
 
   transform(transactions: Transaction[], by: SortBy, order: Order): unknown {
     if (by && order) {
-      const high = order === Order.Descending? -1 : 1;
+      const high = order === Order.Descending ? -1 : 1;
       const low = order === Order.Descending ? 1 : -1;
       transactions.sort((a, b) => {
-        let val1, val2;
+        let val1;
+        let val2;
         if (by === SortBy.Date) {
           val1 = Number(a.transactionDate);
           val2 = Number(b.transactionDate);

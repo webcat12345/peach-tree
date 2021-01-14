@@ -23,7 +23,7 @@ export class PreviewModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async transfer() {
+  async transfer(): Promise<any> {
     try {
       await this.transactionService.transferMoney(this.transaction).toPromise();
       this.activeModal.close(true);

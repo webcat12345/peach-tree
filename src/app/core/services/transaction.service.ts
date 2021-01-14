@@ -53,7 +53,7 @@ export class TransactionService {
       map((res: { data: Transaction[] }) => {
         let merchants = [];
         if (keywords) {
-          merchants = res.data.filter(item => item.merchant.toLowerCase().replace(/\s/g, '').includes(keywords.toLowerCase()))
+          merchants = res.data.filter(item => item.merchant.toLowerCase().replace(/\s/g, '').includes(keywords.toLowerCase()));
         } else {
           merchants = res.data;
         }

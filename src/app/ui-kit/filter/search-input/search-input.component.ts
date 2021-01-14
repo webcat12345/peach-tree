@@ -32,12 +32,12 @@ export class SearchInputComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.unsubscribeAll.next();
     this.unsubscribeAll.complete();
   }
 
-  clean() {
+  clean(): void {
     this.form.get('keyword').setValue('');
   }
 

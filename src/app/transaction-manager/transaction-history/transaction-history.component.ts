@@ -28,7 +28,7 @@ export class TransactionHistoryComponent implements OnInit {
     this.transactionService.loadTransactions();
   }
 
-  sortChange(sort: Sort) {
+  sortChange(sort: Sort): void {
     this.by = sort.by;
     this.order = sort.order;
   }
