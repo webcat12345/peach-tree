@@ -31,5 +31,13 @@ jobs:
       - name: Lint Test
         run: npm run lint
 
+      - name: Unit Test
+        run: npm run test
+
+      - name: Report coverage
+          run: bash <(curl -s https://codecov.io/bash)
+          env:
+            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
       - name: AoT Build
         run: npm run build:aot
