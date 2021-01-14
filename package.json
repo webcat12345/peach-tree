@@ -7,10 +7,10 @@
     "build": "ng build",
     "build:prod": "ng build --prod",
     "build:aot": "ng build --aot=true",
+    "build:gh-page": "ng build --prod --output-path docs --base-href /peach-tree/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "deploy": "ng build --prod --output-path docs --base-href /peach-tree/"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
