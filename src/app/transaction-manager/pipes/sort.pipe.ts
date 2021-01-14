@@ -8,7 +8,7 @@ import { Order, SortBy } from '../../core/enums/sort-by';
 })
 export class SortPipe implements PipeTransform {
 
-  transform(transactions: Transaction[], by: SortBy, order: Order): unknown {
+  transform(transactions: Transaction[], by: SortBy, order: Order): Transaction[] {
     if (by && order) {
       const high = order === Order.Descending ? -1 : 1;
       const low = order === Order.Descending ? 1 : -1;
