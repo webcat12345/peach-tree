@@ -14,25 +14,14 @@ import { Transaction } from '../../core/models/transaction';
 export class TransactionHistoryComponent implements OnInit {
 
   sortOptions: Option<SortBy>[] = enumToOptions(SortBy);
-  transactions: Transaction[] = [];
+  transactions$ = this.transactionService.transactions$;
 
   constructor(
     private transactionService: TransactionService
   ) { }
 
   ngOnInit(): void {
-    this.getTransactions();
+    this.transactionService.loadTransactions();
   }
-
-  private async getTransactions() {
-    try {
-      this.transactions = await this.transactionService.getTransactions().toPromise();
-    } catch (e) {
-
-    } finally {
-
-    }
-  }
-
 
 }

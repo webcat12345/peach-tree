@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { TransactionService } from '../../core/services/transaction.service';
-import { Merchant, Transaction } from '../../core/models/transaction';
+import { AlertService } from '../../ui-kit/alert/alert.service';
+import { OVERDRAFT, TransactionService } from '../../core/services/transaction.service';
+import { Transaction } from '../../core/models/transaction';
 import { randomFromEnum } from '../../core/utils/enum.util';
 import { CategoryCode, TransactionType } from '../../core/enums/transaction';
+import { PreviewModalComponent } from '../preview-modal/preview-modal.component';
 
 @Component({
   selector: 'peach-tree-transfer-form',
@@ -13,37 +17,31 @@ import { CategoryCode, TransactionType } from '../../core/enums/transaction';
 })
 export class TransferFormComponent implements OnInit {
 
-  balance = 5824.76; // Predefined balance
-
+  balance$ = this.transactionService.balance$;
   form: FormGroup = this.fb.group({
     toAccount: ['', Validators.required],
     amount: [0, Validators.min(1)]
   });
-  merchants: Merchant[] = [];
 
   constructor(
     private transactionService: TransactionService,
-    private fb: FormBuilder
-  ) { }
-
-  ngOnInit(): void {
-    this.getAllMerchants();
+    private fb: FormBuilder,
+    private modalService: NgbModal,
+    private alertService: AlertService,
+    private currencyPipe: CurrencyPipe
+  ) {
   }
 
-  private async getAllMerchants() {
-    try {
-      this.merchants = await this.transactionService.searchAvailableMerchants(null).toPromise();
-    } catch (e) {
-
-    } finally {
-
-    }
+  ngOnInit(): void {
   }
 
   async submit() {
     try {
       const value = this.form.value;
-
+      if (!this.transactionService.validateAmount(value.amount)) { // overdraft is limited to -500 USD
+        this.alertService.alert('Warning', `You shouldn't be able to overdraft your account beyond a balance of ${this.currencyPipe.transform(OVERDRAFT)}.`);
+        return;
+      }
       const payload: Transaction = {
         merchant: typeof value.toAccount === 'string' ? value.toAccount : value.toAccount.merchant,
         amount: value.amount,
@@ -52,11 +50,16 @@ export class TransferFormComponent implements OnInit {
         transactionDate: new Date().getTime(),
         transactionType: randomFromEnum<TransactionType>(TransactionType)
       };
-      console.log(payload);
+      const modalRef = this.modalService.open(PreviewModalComponent); // preview dialog should be opened
+      modalRef.componentInstance.transaction = payload;
+      modalRef.closed.subscribe(res => {
+        if (res) { // reset transfer form after the successful transfer
+          this.form.get('toAccount').setValue('');
+          this.form.get('amount').setValue(0);
+        }
+      });
     } catch (e) {
       console.log(e);
-    } finally {
-
     }
   }
 

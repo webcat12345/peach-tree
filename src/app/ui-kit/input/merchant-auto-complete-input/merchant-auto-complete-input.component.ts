@@ -1,9 +1,10 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 import { Merchant } from '../../../core/models/transaction';
+import { TransactionService } from '../../../core/services/transaction.service';
 
 @Component({
   selector: 'peach-tree-merchant-auto-complete-input',
@@ -22,7 +23,6 @@ export class MerchantAutoCompleteInputComponent implements ControlValueAccessor 
   @Input() label: string;
   @Input() placeholder = '';
   @Input() value;
-  @Input() options: Merchant[];
 
   onChange;
   formatter = (result: Merchant) => result.merchant;
@@ -30,9 +30,13 @@ export class MerchantAutoCompleteInputComponent implements ControlValueAccessor 
     text$.pipe(
       debounceTime(200),
       distinctUntilChanged(),
-      map(term => term.length < 2 ? []
-        : this.options.filter(v => v.merchant.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+      switchMap(term => term.length < 2 ? of([]) : this.transactionService.searchAvailableMerchants(term))
     )
+
+  constructor(
+    private transactionService: TransactionService
+  ) {
+  }
 
   registerOnChange(fn: any): void {
     this.onChange = fn;

@@ -5,9 +5,8 @@
   </div>
   <div class="content bg-white px-20 py-25">
     <form class="w-100" [formGroup]="form" (ngSubmit)="submit()">
-      <peach-tree-text-input label="FROM ACCOUNT" placeholder="Free Checking(4692) - $5824.76" readonly="true"></peach-tree-text-input>
-      <!--<peach-tree-text-input label="TO ACCOUNT" placeholder="Georgia Power Electric Company" formControlName="toAccount"></peach-tree-text-input>-->
-      <peach-tree-merchant-auto-complete-input label="TO ACCOUNT" placeholder="Georgia Power Electric Company" formControlName="toAccount" [options]="merchants"></peach-tree-merchant-auto-complete-input>
+      <peach-tree-text-input label="FROM ACCOUNT" placeholder="Free Checking(4692) - {{ balance$ | async | currency }}" readonly="true"></peach-tree-text-input>
+      <peach-tree-merchant-auto-complete-input label="TO ACCOUNT" placeholder="Georgia Power Electric Company" formControlName="toAccount"></peach-tree-merchant-auto-complete-input>
       <peach-tree-text-input type="number" prefix="$" label="AMOUNT" placeholder="0.00" formControlName="amount"></peach-tree-text-input>
       <div class="d-flex justify-content-end mt-30">
         <button class="btn btn-warning col-12 col-lg-5" aria-label="Submit" [disabled]="form.invalid">SUBMIT</button>

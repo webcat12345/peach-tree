@@ -6,7 +6,7 @@
     </div>
     <div class="d-flex align-items-center justify-content-center justify-content-sm-start  column-avatar">
       <div class="avatar mb-10 mb-sm-0">
-        <img [src]="item.merchantLogo" [alt]="item.merchant">
+        <img [src]="item.merchantLogo || 'assets/images/dummy-logo.png'" [alt]="item.merchant">
       </div>
     </div>
     <div class="d-flex align-items-center justify-content-center justify-content-sm-start  flex-grow-1 column-company">
