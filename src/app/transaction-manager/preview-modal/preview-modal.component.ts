@@ -16,8 +16,9 @@ export class PreviewModalComponent implements OnInit {
 
   constructor(
     private transactionService: TransactionService,
-    public activeModal: NgbActiveModal
-  ) { }
+    public activeModal: NgbActiveModal,
+  ) {
+  }
 
   ngOnInit(): void {
   }

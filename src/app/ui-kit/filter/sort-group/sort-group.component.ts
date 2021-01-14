@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Option } from '../../../core/models/option';
 import { Order } from '../../../core/enums/sort-by';
+import { Sort } from '../../../core/models/sort';
 
 @Component({
   selector: 'peach-tree-sort-group',
@@ -11,9 +12,10 @@ import { Order } from '../../../core/enums/sort-by';
 export class SortGroupComponent implements OnInit {
 
   @Input() options: Option<any>[] = [];
+  @Output() sortChange: EventEmitter<Sort> = new EventEmitter<Sort>();
 
   Order = Order;
-  filter: { by: any, order: Order } = { by: null, order: null };
+  filter: Sort = { by: null, order: null };
 
   constructor() { }
 
@@ -31,6 +33,7 @@ export class SortGroupComponent implements OnInit {
       }
       this.filter.by = option;
     }
+    this.sortChange.emit(this.filter);
   }
 
 }

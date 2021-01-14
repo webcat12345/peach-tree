@@ -26,7 +26,7 @@ export class TransactionService {
   transferMoney(transaction: Transaction): Observable<boolean> {
     this.balance -= transaction.amount;
     this.balance$.next(this.balance);
-    this.transactions.unshift(transaction);
+    this.transactions = [transaction, ...this.transactions];
     this.transactions$.next(this.transactions);
     return of(true);
   }

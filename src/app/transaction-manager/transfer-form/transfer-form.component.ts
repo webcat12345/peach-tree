@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -17,6 +17,8 @@ import { PreviewModalComponent } from '../preview-modal/preview-modal.component'
 })
 export class TransferFormComponent implements OnInit {
 
+  @ViewChild('formRef') formRef: ElementRef;
+
   balance$ = this.transactionService.balance$;
   form: FormGroup = this.fb.group({
     toAccount: ['', Validators.required],
@@ -28,7 +30,7 @@ export class TransferFormComponent implements OnInit {
     private fb: FormBuilder,
     private modalService: NgbModal,
     private alertService: AlertService,
-    private currencyPipe: CurrencyPipe
+    private currencyPipe: CurrencyPipe,
   ) {
   }
 
@@ -39,7 +41,7 @@ export class TransferFormComponent implements OnInit {
     try {
       const value = this.form.value;
       if (!this.transactionService.validateAmount(value.amount)) { // overdraft is limited to -500 USD
-        this.alertService.alert('Warning', `You shouldn't be able to overdraft your account beyond a balance of ${this.currencyPipe.transform(OVERDRAFT)}.`);
+        this.alertService.alert('Warning', `You shouldn't be able to overdraft your account beyond a balance of ${ this.currencyPipe.transform(OVERDRAFT) }.`);
         return;
       }
       const payload: Transaction = {
@@ -50,6 +52,7 @@ export class TransferFormComponent implements OnInit {
         transactionDate: new Date().getTime(),
         transactionType: randomFromEnum<TransactionType>(TransactionType)
       };
+      this.formRef.nativeElement.ownerDocument.activeElement.blur(); // HOTFIX: https://github.com/angular/angular/issues/22426
       const modalRef = this.modalService.open(PreviewModalComponent); // preview dialog should be opened
       modalRef.componentInstance.transaction = payload;
       modalRef.closed.subscribe(res => {

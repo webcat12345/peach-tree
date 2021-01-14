@@ -12,12 +12,17 @@ import { TransactionHistoryComponent } from './transaction-history/transaction-h
 import { TransactionTableComponent } from './transaction-table/transaction-table.component';
 import { PreviewModalComponent } from './preview-modal/preview-modal.component';
 
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
+
 @NgModule({
   declarations: [
     TransferFormComponent,
     TransactionHistoryComponent,
     TransactionTableComponent,
-    PreviewModalComponent
+    PreviewModalComponent,
+    FilterPipe,
+    SortPipe,
   ],
   imports: [
     CommonModule,

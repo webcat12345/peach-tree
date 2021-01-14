@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { debounceTime, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'peach-tree-search-input',
@@ -10,7 +10,7 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class SearchInputComponent implements OnInit, OnDestroy {
 
-  @Input() debounce = 800;
+  @Input() debounce = 200;
   @Output() keywordChange: EventEmitter<string> = new EventEmitter<string>();
 
   form: FormGroup = this.fb.group({
@@ -25,7 +25,8 @@ export class SearchInputComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.form.get('keyword').valueChanges.pipe(
-      takeUntil(this.unsubscribeAll)
+      takeUntil(this.unsubscribeAll),
+      debounceTime(this.debounce)
     ).subscribe(value => {
       this.keywordChange.emit(value);
     });
