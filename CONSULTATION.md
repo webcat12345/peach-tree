@@ -50,3 +50,7 @@ I implemented debounce time for the search input instead of keystroke trigger. I
 
 #### i18n: add multi-language support
 To present i18n, just added only one additional language - French
+
+#### a11y: WCAG level A
+Trying to improve the score but not sure I am done all places here... Apologize
+
