@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="aa6ce7e6e6fe5cd080713965451f25bca15a2a25" datatype="html">
         <source>Recent Transactions</source>
-        <target>Transactions Récentes</source>
+        <target>Transactions Récentes</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/transaction-manager/transaction-history/transaction-history.component.html</context>
           <context context-type="linenumber">4</context>
@@ -12,7 +12,7 @@
       </trans-unit>
       <trans-unit id="ec97f67072a83aaa972536b18d83179f6e4bbec9" datatype="html">
         <source>Sort by</source>
-        <target>Trier Par</source>
+        <target>Trier Par</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/transaction-manager/transaction-history/transaction-history.component.html</context>
           <context context-type="linenumber">13</context>
@@ -20,7 +20,7 @@
       </trans-unit>
       <trans-unit id="a42860a7a282ec6ca57db03dce54b87705ac301b" datatype="html">
         <source>Make a Transfer</source>
-        <target>Effectuer un Transfert</source>
+        <target>Effectuer un Transfert</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/transaction-manager/transfer-form/transfer-form.component.html</context>
           <context context-type="linenumber">4</context>
@@ -28,7 +28,7 @@
       </trans-unit>
       <trans-unit id="eff550208c514f5c350e6381df99fcb99c5920ea" datatype="html">
         <source>SUBMIT</source>
-        <target>SOUMETTRE</source>
+        <target>SOUMETTRE</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/transaction-manager/transfer-form/transfer-form.component.html</context>
           <context context-type="linenumber">12</context>
@@ -43,7 +43,7 @@
       </trans-unit>
       <trans-unit id="1b8c2008ce5428bd8dabf6980d3163af4c7b02f0" datatype="html">
         <source>CANCEL</source>
-        <target>ANNULER</source>
+        <target>ANNULER</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/transaction-manager/preview-modal/preview-modal.component.html</context>
           <context context-type="linenumber">14</context>
@@ -51,7 +51,7 @@
       </trans-unit>
       <trans-unit id="9a1d85b3ba0f2fe42e8f9da6b8b4ee3aede5ec0d" datatype="html">
         <source>TRANSFER</source>
-        <target>TRANSFERT</source>
+        <target>TRANSFERT</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/transaction-manager/preview-modal/preview-modal.component.html</context>
           <context context-type="linenumber">15</context>
