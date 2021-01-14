@@ -10,6 +10,7 @@
     "build:gh-page": "ng build --prod --output-path dist --base-href /peach-tree/",
     "extract:i18n": "ng extract-i18n --output-path src/locale",
     "test": "ng test",
+    "test:ci": "ng test --karma-config=karma-ci.conf.js --no-progress --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

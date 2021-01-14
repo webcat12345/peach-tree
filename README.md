@@ -1,5 +1,7 @@
 # Peach Tree Bank (POC)
 
+[![codecov](https://codecov.io/gh/webcat12345/peach-tree/branch/dev/graph/badge.svg?token=8EWUBQ5UL2)](https://codecov.io/gh/webcat12345/peach-tree)
+
 This project is test task for Backbase Front End Technical Assignment.
 
 ## Documentations

@@ -32,7 +32,7 @@ jobs:
         run: npm run lint
 
       - name: Unit Test
-        run: npm run test
+        run: npm run test:ci
 
       - name: Report coverage
         run: bash <(curl -s https://codecov.io/bash)
