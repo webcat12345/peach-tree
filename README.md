@@ -4,7 +4,7 @@ This project is test task for Backbase Front End Technical Assignment.
 
 ## Documentations
 * Requirement - [REQUIREMENTS.md](REQUIREMENTS.md)
-* Project Consultation - [CONSULTATION](CONSULTATION.md)
+* Project Consultation - [CONSULTATION.md](CONSULTATION.md)
 
 ## Technical guideline
 
