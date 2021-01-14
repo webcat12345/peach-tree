@@ -17,7 +17,7 @@ This project is deployed to Github Page, and you can review the URL - [https://w
 * For the Git guideline, I followed [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/)
 * There is a CI/CD integration with [Github Actions](https://github.com/features/actions)
 * Pushing to Git branch `dev` will do proper testing for the codebase
-* Pushing to Git branch `gh-page` will deploy project to the server
+* Pushing to Git branch `prod` will deploy project to the server
 
 ### Framework & Libraries
 
