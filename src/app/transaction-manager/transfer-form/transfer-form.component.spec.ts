@@ -15,7 +15,7 @@ describe('TransferFormComponent', () => {
   let component: TransferFormComponent;
   let fixture: ComponentFixture<TransferFormComponent>;
   let transactionServiceStub: Partial<TransactionService>;
-  let alertServiceStub: Partial<AlertService>;
+  const alertServiceStub: Partial<AlertService> = null;
 
   transactionServiceStub = {
     balance$: new BehaviorSubject<number>(DEFAULT_BALANCE),

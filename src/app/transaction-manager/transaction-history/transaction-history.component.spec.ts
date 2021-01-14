@@ -19,7 +19,7 @@ describe('TransactionHistoryComponent', () => {
     balance$: new BehaviorSubject<number>(DEFAULT_BALANCE),
     transactions: expectedTransactions.data,
     transactions$: new BehaviorSubject<Transaction[]>(expectedTransactions.data),
-    loadTransactions() {
+    loadTransactions(): void {
       return;
     }
   };

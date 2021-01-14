@@ -65,7 +65,7 @@ describe('TransactionService', () => {
         expect(service.transactions).toEqual(expectedTransactions.data, 'loaded value is not saved');
       },
       fail
-    )
+    );
     service.loadTransactions();
   });
 
