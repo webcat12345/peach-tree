@@ -46,8 +46,7 @@ Best practice is to use server side filtering. And for the list, especially tabl
 I guess your expectation is to use in-memory-data-service at least, but I didn't use that, because it's kinda useless for this stage. Apologize.
 
 #### The transactions list should update immediately at every keystroke.
-I implemented debounce time for the search input instead of keystroke trigger. It will require when we do server side filtering to reduce API calls. 
+I implemented debounce time for the search input instead of keystroke trigger. It will require when we do server side filtering to reduce API calls.
 
-- i18n: add multi-language support
-- a11y: WCAG level A
-- decent test coverage
+#### i18n: add multi-language support
+To present i18n, just added only one additional language - French
